@@ -1,3 +1,5 @@
+$navbar-main-background: #1565c0 !default;
+
 .navbar-wrapper {
   background-color: #fff;
   box-shadow: 0 4px 20px 0 rgba(0,0,0,0.12);
@@ -13,7 +15,7 @@
 .navbar-main {
   padding-top: .65em;
   padding-bottom: .65em;
-  background-color: #1565c0;
+  background-color: $navbar-main-background;
 
   .nav-link {
     font-size: 1.2em;
