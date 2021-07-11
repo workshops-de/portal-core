@@ -13,7 +13,7 @@ h6,
   word-wrap: break-word; // for mobile
 }
 
-body {
+body p, body li {
   line-height: calc(1.5em + .2vw);
 }
 
