@@ -23,7 +23,13 @@ body p, body li {
 
 // Misc
 //==================================================
-.has-navigation-fixed {}
+.has-navigation-fixed {
+  padding-top: 70px;
+
+  &.has-navigation-banner {
+    padding-top: 114px;
+  }
+}
 
 .pt-8, .py-8 {
   padding-top: 8rem;

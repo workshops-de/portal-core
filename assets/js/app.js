@@ -1,10 +1,12 @@
-var body = document.body;
-var nav = document.querySelector(".navbar-wrapper");
-var headroom = new Headroom(nav, {
-  tolerance: 5,
-  offset: body.classList.contains(".has-navigation-banner") ? 114 : 70
-});
-headroom.init();
+var nav = document.querySelector(".navbar-sticky");
+if (nav) {
+  var body = document.body;
+  var navHeadroom = new Headroom(nav, {
+    tolerance: 5,
+    offset: body.classList.contains(".has-navigation-banner") ? 114 : 70
+  });
+  navHeadroom.init();
+}
 
 function adFader(_, element) {
   var elementTop = $(element).offset().top;

@@ -2,14 +2,16 @@ $navbar-main-background: #1565c0 !default;
 
 .navbar-wrapper {
   background-color: #fff;
-  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.12);
 }
 
 .navbar-banner {
+  position: relative;
+  z-index: 1;
   font-size: 1rem;
   text-align: center;
   padding: .6rem 1.2rem;
   background-color: #fff;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.12);
 }
 
 .navbar-main {
