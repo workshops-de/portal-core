@@ -1,9 +1,9 @@
-var myElement = document.querySelector("[data-headroom]");
-// construct an instance of Headroom, passing the element
-var headroom = new Headroom(myElement, {
-  tolerance : 5
+var body = document.body;
+var nav = document.querySelector(".navbar-wrapper");
+var headroom = new Headroom(nav, {
+  tolerance: 5,
+  offset: body.classList.contains(".has-navigation-banner") ? 114 : 70
 });
-// initialise
 headroom.init();
 
 function adFader(_, element) {
