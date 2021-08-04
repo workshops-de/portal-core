@@ -43,14 +43,13 @@
     background-color: #fcfcfc;
     border-bottom: 1px solid #efefef;
     color: #333;
-    padding-bottom: 15px;
     padding-top: 60px;
+    padding-bottom: 60px;
     margin-bottom: 40px;
     background: url('/shared/assets/img/headers/header-bg-home.png');
     background-size: cover;
     background-position: center center;
     color: #333;
-    padding: $spacer*11 0 $spacer*6;
 
     .header-homepage-title {
       line-height: 4.5rem;
