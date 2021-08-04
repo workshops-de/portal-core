@@ -32,7 +32,6 @@
 
     .header-post-title {
       color: #fff;
-      padding-top: 15px;
       font-size: 250%;
     }
     .header-post-author {
@@ -152,7 +151,7 @@
 @include media-breakpoint-up(sm) {
   .header {
     &.header-post {
-      min-height: 400px;
+      min-height: 250px;
       .text-wrapper {
         position: absolute; bottom: 0; left: 0; right: 0;
       }

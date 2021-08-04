@@ -39,6 +39,8 @@ $navbar-main-background: #1565c0 !default;
 
   .active {
     .nav-link {
+      padding-right: 1rem !important;
+      padding-left: 1rem !important;
       background: rgba(0,0,0,.1);
     }
   }

@@ -1,11 +1,11 @@
 
-<article class="card mb-5">
+<article class="card my-5">
   <div class="row">
     <div class="col-md-4">
       <a href="{{ post.url }}" class="rounded c-img-post"
         style="background-image: url('/artikel/{{post.slug}}/{{ post.header_image }}');">
         <span class="visually-hidden">{{ post.title }}</span>
-        <span class="c-post-categories ms-2">
+        <span class="c-post-categories">
           {% for category in post.categories %}
             <span class="text-uppercase">{{ category }}</span>
             {% unless forloop.last %}<span class="ms-1 me-1">•</span>{% endunless %}
