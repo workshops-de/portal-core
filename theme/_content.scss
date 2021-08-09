@@ -8,23 +8,6 @@
     color: $text-muted;
   }
 
-  > p,
-  > ul {
-    hyphens: auto;
-
-    -webkit-hyphenate-limit-before: 2;
-    -ms-hyphenate-limit-before: 2;
-    -moz-hyphenate-limit-before: 2;
-
-    -webkit-hyphenate-limit-after: 3;
-    -ms-hyphenate-limit-after: 3;
-    -moz-hyphenate-limit-after: 3;
-
-    -webkit-hyphenate-limit-lines: 2;
-    -ms-hyphenate-limit-lines: 2;
-    -moz-hyphenate-limit-lines: 2;
-  }
-
   > pre,
   > div,
   > ul,
