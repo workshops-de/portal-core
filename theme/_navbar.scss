@@ -87,23 +87,44 @@ $navbar-main-background: #1565c0 !default;
 }
 
 .form-inline .navbar-search {
-  width: 2.4em;
+  width: 3.4em;
   border: 0;
-  border-radius: 9999px;
+  border-radius: 3px;
   transition: all 0.2s;
 
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
+  background: none;
+
+  &::placeholder {
+    font-size: 22px;
+    color: $white;
+    padding-left: 2px;
+  }
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
 
   &:focus, &:not(:placeholder-shown) {
-    background-color: rgba(#000, 0.1);
+    background-color: $white;
     font-family: inherit;
     width: 15em;
 
     &::placeholder {
       color: transparent;
+    }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      -webkit-appearance: auto;
     }
   }
 }
