@@ -119,6 +119,7 @@ $navbar-main-background: #1565c0 !default;
 
     &::placeholder {
       color: transparent;
+      text-shadow: none;
     }
 
     &::-webkit-search-decoration,
