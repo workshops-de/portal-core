@@ -1,0 +1,12 @@
+.footer-nav {
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    margin: .25em 0;
+
+    @media (max-width: 48em) {
+      margin-bottom: .5em;
+    }
+  }
+}
