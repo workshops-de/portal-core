@@ -28,6 +28,20 @@
     }
   }
 
+  &.header-author {
+    background-color: #fcfcfc;
+    border-bottom: 1px solid #efefef;
+    color: #333;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    margin-bottom: 40px;
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+
   &.header-post {
     color: #fff;
     text-shadow: 2px 2px 2px #000;
@@ -156,6 +170,12 @@
 }
 
 .header-tutorials {
+  background: url('/shared/assets/img/headers/header-bg-neutral.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+.header-author {
   background: url('/shared/assets/img/headers/header-bg-neutral.png');
   background-size: cover;
   background-position: center center;
