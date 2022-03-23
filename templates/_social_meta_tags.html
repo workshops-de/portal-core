@@ -16,8 +16,10 @@
   <meta property="og:type" content="website" />
 {% endif %}
 
-{% if page.header_image %}
+{% if page.header_image && page.layout == "post" && {{ site.og_generator_enabled }} %}
   <meta property="og:image" content="{{ site.url }}{% og_filter posts %}" />
+{% elsif page.header_image %}
+  <meta property="og:image" content="{{ site.url }}/artikel/{{page.slug}}/{{ page.header_image }}" />
 {% else %}
   <meta property="og:image" content="{{ site.url }}/assets/img/facebook-share.png" />
 {% endif %}
