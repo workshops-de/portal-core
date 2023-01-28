@@ -1,0 +1,12 @@
+{% if jekyll.environment == "production" %}
+  <script async defer src="https://sa.workshops.de/latest.js"></script>
+  <script
+    async
+    data-collect="outbound,emails,downloads"
+    data-extensions="pdf,csv,docx,xlsx,zip,doc,xls"
+    data-use-title="true"
+    data-full-urls="false"
+    src="https://sa.workshops.de/auto-events.js"></script>
+
+  <noscript><img src="https://sa.workshops.de/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+{% endif %}
