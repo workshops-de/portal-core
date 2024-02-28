@@ -1,14 +1,15 @@
 #!/usr/bin/env ruby
 
 require "yaml"
-require 'net/http'
+require "down"
+require "fileutils"
 
 puts "Downloading gravatars"
 
 def save_gravatar_image(gravatar_uid, size)
   puts "Writing UID #{gravatar_uid} in size #{size}"
-  image = Net::HTTP.get(URI.parse("http://www.gravatar.com/avatar/#{gravatar_uid}?s=#{size}"))
-  File.write("assets/img/gravatars/#{gravatar_uid}-#{size}x#{size}.jpg", image)
+  tempfile = Down.download(URI.parse("http://www.gravatar.com/avatar/#{gravatar_uid}?s=#{size}&d=mp"))
+  FileUtils.mv(tempfile.path, "assets/img/gravatars/#{gravatar_uid}-#{size}x#{size}.jpg")
 end
 
 Dir["_data/users/*.yaml"].each do |file|
