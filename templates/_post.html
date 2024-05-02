@@ -19,7 +19,7 @@
           {{post.title}}
         </h2>
         <small class="text-muted">
-          {{ post.author }} <span class="ms-1 me-1">•</span> <time>{{ post.published_at | date: "%d.%m.%Y" }}</time>
+          {{ post.author }}{% if post.co_author %} und {{ post.co_author }}{% endif %} <span class="ms-1 me-1">•</span> <time>{{ post.published_at | date: "%d.%m.%Y" }}</time>
           <span class="ms-1 me-1">|</span>
           {% include shared/_reading_time.html text=post.content %}
         </small>
