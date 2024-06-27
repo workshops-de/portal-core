@@ -61,11 +61,6 @@
   }
 
   a:not(.btn) {
-    @include underline($body-color);
-    color: $body-color;
-
-    &:hover {
-      @include underline($link-hover-color);
-    }
+    text-decoration: underline;
   }
 }

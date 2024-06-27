@@ -2,7 +2,7 @@ nav[data-toggle='toc'] .nav > li > a {
   display: block;
   padding: $spacer*0.25 0;
   font-size: $small-font-size;
-  color: #767676;
+  color: var(--bs-secondary-color);
 }
 nav[data-toggle='toc'] .nav > li > a:hover,
 nav[data-toggle='toc'] .nav > li > a:focus {

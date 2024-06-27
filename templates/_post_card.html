@@ -8,9 +8,9 @@
       {% endfor %}
     </span>
   </div>
-  <a class="card-body text-dark stretched-link" href="{{ post.url }}">
+  <a class="card-body stretched-link px-0" href="{{ post.url }}">
     <div class="text-muted">{{ post.author }}{% if post.co_author %} und {{ post.co_author }}{% endif %}</div>
-    <span class="fw-bold">
+    <span class="fw-semibold">
       {{ post.title }}
     </span>
   </a>
