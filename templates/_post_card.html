@@ -9,7 +9,10 @@
     </span>
   </div>
   <a class="card-body stretched-link px-0" href="{{ post.url }}">
-    <div class="text-muted">{{ post.author }}{% if post.co_author %} und {{ post.co_author }}{% endif %}</div>
+    <div class="text-muted small">
+      {{ post.author }}{% if post.co_author %} und {{ post.co_author }}{% endif %}
+      <span class="ms-1 me-1">•</span> <time>{{ post.published_at | date: "%d.%m.%Y" }}</time>
+    </div>
     <span class="fw-semibold">
       {{ post.title }}
     </span>
