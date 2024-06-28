@@ -33,12 +33,11 @@
     font-size: $font-size-base * 1.2;
   }
 
-  $testimonial-step1: rgba($primary, 1);
-  $testimonial-step2: rgba($primary, 0.75);
-  $testimonial-step3: rgba($primary, 0.5);
-  $testimonial-step4: rgba($primary, 0.25);
-  $testimonial-step5: rgba($primary, 0);
-  $gradient: $testimonial-step1 0%, $testimonial-step2 25%, $testimonial-step3 50%, $testimonial-step4 75%, $testimonial-step5 100%;
+  $testimonial-step1: rgba($primary, 0.6);
+  $testimonial-step2: rgba($primary, 0.4);
+  $testimonial-step3: rgba($primary, 0);
+  $testimonial-step4: rgba($primary, 0);
+  $gradient: $testimonial-step1 0%, $testimonial-step2 60%, $testimonial-step3 80%, $testimonial-step3 100%;
 
   &-right {
     background-image: url(/assets/img/schulungen/shared/testimonial-annika-stille-adesso.jpg);
