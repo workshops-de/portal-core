@@ -55,3 +55,64 @@
     width: 100% !important;
   }
 }
+
+// Technical Review Log Collapsible Styles
+.technical-review-header {
+  position: relative;
+  
+  .btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    i {
+      font-size: 0.7rem;
+      margin-right: 0.25rem;
+    }
+  }
+}
+
+// Style for the collapsible content
+.collapse {
+  &.show {
+    animation: fadeInDown 0.3s ease-in-out;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Add some visual separation for the technical review section
+.technical-review-section {
+  border-top: 2px solid #e9ecef;
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  
+  h2 {
+    color: #6c757d;
+    position: relative;
+    
+    &::before {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #007bff, #6f42c1);
+      margin-bottom: 0.5rem;
+    }
+  }
+}

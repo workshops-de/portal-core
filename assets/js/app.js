@@ -33,7 +33,78 @@ function adFader(_, element) {
   $(window).scroll(refresh);
 }
 
+// Technical Review Log Collapsible Functionality
+function initTechnicalReviewCollapse() {
+  // Find all h2 elements that contain the technical review log text
+  const reviewHeaders = document.querySelectorAll('h2');
+  
+  reviewHeaders.forEach(header => {
+    const headerText = header.textContent.trim();
+    if (headerText.includes('🔍 Technical Review Log') || headerText.includes('Technical Review Log')) {
+      // Create collapsible structure
+      const collapseId = 'technical-review-collapse-' + Math.random().toString(36).substr(2, 9);
+      
+      // Add CSS classes for styling
+      header.classList.add('technical-review-header');
+      
+      // Create wrapper for the entire section
+      const sectionWrapper = document.createElement('div');
+      sectionWrapper.className = 'technical-review-section';
+      
+      // Create the collapse button
+      const collapseButton = document.createElement('button');
+      collapseButton.className = 'btn btn-outline-secondary btn-sm ms-2';
+      collapseButton.type = 'button';
+      collapseButton.setAttribute('data-bs-toggle', 'collapse');
+      collapseButton.setAttribute('data-bs-target', '#' + collapseId);
+      collapseButton.setAttribute('aria-expanded', 'false');
+      collapseButton.setAttribute('aria-controls', collapseId);
+      collapseButton.innerHTML = '<i class="fa fa-eye"></i> Anzeigen';
+      
+      // Add click handler to update button text
+      collapseButton.addEventListener('click', function() {
+        setTimeout(() => {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.innerHTML = isExpanded ? '<i class="fa fa-eye-slash"></i> Ausblenden' : '<i class="fa fa-eye"></i> Anzeigen';
+        }, 350); // Wait for Bootstrap animation
+      });
+      
+      // Add button to header
+      header.appendChild(collapseButton);
+      
+      // Find all content after this header until the next h1 or h2
+      const contentElements = [];
+      let nextElement = header.nextElementSibling;
+      
+      while (nextElement && !['H1', 'H2'].includes(nextElement.tagName)) {
+        contentElements.push(nextElement);
+        nextElement = nextElement.nextElementSibling;
+      }
+      
+      if (contentElements.length > 0) {
+        // Create collapse wrapper
+        const collapseWrapper = document.createElement('div');
+        collapseWrapper.className = 'collapse';
+        collapseWrapper.id = collapseId;
+        
+        // Move all content elements into the collapse wrapper
+        contentElements.forEach(element => {
+          collapseWrapper.appendChild(element);
+        });
+        
+        // Wrap the header and collapsible content in the section wrapper
+        header.parentNode.insertBefore(sectionWrapper, header);
+        sectionWrapper.appendChild(header);
+        sectionWrapper.appendChild(collapseWrapper);
+      }
+    }
+  });
+}
+
 $(document).ready(function () {
   $('[ad-fader]').each(adFader);
+  
+  // Initialize technical review log collapse functionality
+  initTechnicalReviewCollapse();
 });
 
