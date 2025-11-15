@@ -44,36 +44,32 @@ function initTechnicalReviewCollapse() {
       // Create collapsible structure
       const collapseId = 'technical-review-collapse-' + Math.random().toString(36).substr(2, 9);
       
-      // Add CSS classes for styling
-      header.classList.add('technical-review-header');
-      
       // Create wrapper for the entire section
       const sectionWrapper = document.createElement('div');
       sectionWrapper.className = 'technical-review-section';
       
-      // Create the collapse button
+      // Create the collapse button (this will replace the header)
       const collapseButton = document.createElement('button');
-      collapseButton.className = 'btn btn-outline-secondary btn-sm ms-2';
+      collapseButton.className = 'btn btn-outline-secondary btn-sm w-100 text-start';
       collapseButton.type = 'button';
       collapseButton.setAttribute('data-bs-toggle', 'collapse');
       collapseButton.setAttribute('data-bs-target', '#' + collapseId);
       collapseButton.setAttribute('aria-expanded', 'false');
       collapseButton.setAttribute('aria-controls', collapseId);
-      collapseButton.innerHTML = '<i class="fa fa-eye"></i> Anzeigen';
+      collapseButton.innerHTML = '<i class="fa fa-eye me-2"></i>Technical Review anzeigen';
       
       // Add click handler to update button text
       collapseButton.addEventListener('click', function() {
         setTimeout(() => {
           const isExpanded = this.getAttribute('aria-expanded') === 'true';
-          this.innerHTML = isExpanded ? '<i class="fa fa-eye-slash"></i> Ausblenden' : '<i class="fa fa-eye"></i> Anzeigen';
+          this.innerHTML = isExpanded 
+            ? '<i class="fa fa-eye-slash me-2"></i>Technical Review ausblenden' 
+            : '<i class="fa fa-eye me-2"></i>Technical Review anzeigen';
         }, 350); // Wait for Bootstrap animation
       });
       
-      // Add button to header
-      header.appendChild(collapseButton);
-      
       // Find all content after this header until the next h1 or h2
-      const contentElements = [];
+      const contentElements = [header]; // Include the header itself
       let nextElement = header.nextElementSibling;
       
       while (nextElement && !['H1', 'H2'].includes(nextElement.tagName)) {
@@ -87,14 +83,14 @@ function initTechnicalReviewCollapse() {
         collapseWrapper.className = 'collapse';
         collapseWrapper.id = collapseId;
         
-        // Move all content elements into the collapse wrapper
+        // Move all content elements (including header) into the collapse wrapper
         contentElements.forEach(element => {
           collapseWrapper.appendChild(element);
         });
         
-        // Wrap the header and collapsible content in the section wrapper
+        // Insert the section wrapper and button before the original header position
         header.parentNode.insertBefore(sectionWrapper, header);
-        sectionWrapper.appendChild(header);
+        sectionWrapper.appendChild(collapseButton);
         sectionWrapper.appendChild(collapseWrapper);
       }
     }
@@ -103,7 +99,7 @@ function initTechnicalReviewCollapse() {
 
 $(document).ready(function () {
   $('[ad-fader]').each(adFader);
-  
+
   // Initialize technical review log collapse functionality
   initTechnicalReviewCollapse();
 });
