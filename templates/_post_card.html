@@ -1,6 +1,6 @@
 <div class="card h-100">
   <div class="c-img-post"
-        style="background-image: url('/artikel/{{post.slug}}/{{ post.header_image }}');">
+        style="background-image: url('{{ post.header_image | resolve_image_url: post.slug }}');">
     <span class="c-post-categories">
       {% for category in post.categories %}
         <span class="text-uppercase">{{category}}</span>
