@@ -36,25 +36,25 @@ function adFader(_, element) {
 // Technical Review Log Collapsible Functionality
 function initTechnicalReviewCollapse() {
   console.log('Initializing Technical Review Collapse...');
-  
+
   // Find all h2 elements that contain the technical review log text
   const reviewHeaders = document.querySelectorAll('h2');
   console.log('Found', reviewHeaders.length, 'h2 elements');
-  
+
   reviewHeaders.forEach((header, index) => {
     const headerText = header.textContent.trim();
     console.log('Header', index, ':', headerText);
-    
+
     if (headerText.includes('🔍 Technical Review Log') || headerText.includes('Technical Review Log')) {
       console.log('Found Technical Review Log header!');
-      
+
       // Create collapsible structure
       const collapseId = 'technical-review-collapse-' + Math.random().toString(36).substr(2, 9);
-      
+
       // Create wrapper for the entire section
       const sectionWrapper = document.createElement('div');
       sectionWrapper.className = 'technical-review-section';
-      
+
       // Create the collapse button (this will replace the header)
       const collapseButton = document.createElement('button');
       collapseButton.className = 'btn btn-outline-secondary btn-sm w-100 text-start mb-3';
@@ -64,50 +64,50 @@ function initTechnicalReviewCollapse() {
       collapseButton.setAttribute('aria-expanded', 'false');
       collapseButton.setAttribute('aria-controls', collapseId);
       collapseButton.innerHTML = '<i class="fa fa-eye me-2"></i>Technical Review anzeigen';
-      
+
       // Add click handler to update button text
       collapseButton.addEventListener('click', function() {
         setTimeout(() => {
           const isExpanded = this.getAttribute('aria-expanded') === 'true';
-          this.innerHTML = isExpanded 
-            ? '<i class="fa fa-eye-slash me-2"></i>Technical Review ausblenden' 
+          this.innerHTML = isExpanded
+            ? '<i class="fa fa-eye-slash me-2"></i>Technical Review ausblenden'
             : '<i class="fa fa-eye me-2"></i>Technical Review anzeigen';
         }, 350); // Wait for Bootstrap animation
       });
-      
+
       // Find all content after this header until the next h1 or h2
       const contentElements = [header]; // Include the header itself
       let nextElement = header.nextElementSibling;
-      
+
       while (nextElement && !['H1', 'H2'].includes(nextElement.tagName)) {
         contentElements.push(nextElement);
         nextElement = nextElement.nextElementSibling;
       }
-      
+
       console.log('Found', contentElements.length, 'elements to collapse');
-      
+
       if (contentElements.length > 0) {
         // Create collapse wrapper
         const collapseWrapper = document.createElement('div');
         collapseWrapper.className = 'collapse';
         collapseWrapper.id = collapseId;
-        
+
         // Store the parent and next sibling before moving elements
         const parentElement = header.parentNode;
         const nextSibling = header.nextSibling;
-        
+
         // Move all content elements (including header) into the collapse wrapper
         contentElements.forEach(element => {
           collapseWrapper.appendChild(element);
         });
-        
+
         // Add elements to section wrapper
         sectionWrapper.appendChild(collapseButton);
         sectionWrapper.appendChild(collapseWrapper);
-        
+
         // Insert the section wrapper where the header was
         parentElement.insertBefore(sectionWrapper, nextSibling);
-        
+
         console.log('Technical Review section created successfully!');
       }
     }
