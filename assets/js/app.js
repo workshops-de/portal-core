@@ -35,12 +35,19 @@ function adFader(_, element) {
 
 // Technical Review Log Collapsible Functionality
 function initTechnicalReviewCollapse() {
+  console.log('Initializing Technical Review Collapse...');
+  
   // Find all h2 elements that contain the technical review log text
   const reviewHeaders = document.querySelectorAll('h2');
+  console.log('Found', reviewHeaders.length, 'h2 elements');
   
-  reviewHeaders.forEach(header => {
+  reviewHeaders.forEach((header, index) => {
     const headerText = header.textContent.trim();
+    console.log('Header', index, ':', headerText);
+    
     if (headerText.includes('🔍 Technical Review Log') || headerText.includes('Technical Review Log')) {
+      console.log('Found Technical Review Log header!');
+      
       // Create collapsible structure
       const collapseId = 'technical-review-collapse-' + Math.random().toString(36).substr(2, 9);
       
@@ -50,7 +57,7 @@ function initTechnicalReviewCollapse() {
       
       // Create the collapse button (this will replace the header)
       const collapseButton = document.createElement('button');
-      collapseButton.className = 'btn btn-outline-secondary btn-sm w-100 text-start';
+      collapseButton.className = 'btn btn-outline-secondary btn-sm w-100 text-start mb-3';
       collapseButton.type = 'button';
       collapseButton.setAttribute('data-bs-toggle', 'collapse');
       collapseButton.setAttribute('data-bs-target', '#' + collapseId);
@@ -77,21 +84,31 @@ function initTechnicalReviewCollapse() {
         nextElement = nextElement.nextElementSibling;
       }
       
+      console.log('Found', contentElements.length, 'elements to collapse');
+      
       if (contentElements.length > 0) {
         // Create collapse wrapper
         const collapseWrapper = document.createElement('div');
         collapseWrapper.className = 'collapse';
         collapseWrapper.id = collapseId;
         
+        // Store the parent and next sibling before moving elements
+        const parentElement = header.parentNode;
+        const nextSibling = header.nextSibling;
+        
         // Move all content elements (including header) into the collapse wrapper
         contentElements.forEach(element => {
           collapseWrapper.appendChild(element);
         });
         
-        // Insert the section wrapper and button before the original header position
-        header.parentNode.insertBefore(sectionWrapper, header);
+        // Add elements to section wrapper
         sectionWrapper.appendChild(collapseButton);
         sectionWrapper.appendChild(collapseWrapper);
+        
+        // Insert the section wrapper where the header was
+        parentElement.insertBefore(sectionWrapper, nextSibling);
+        
+        console.log('Technical Review section created successfully!');
       }
     }
   });
